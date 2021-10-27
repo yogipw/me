@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <title>YogiPw</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+  <!--
+            Or,
+            Use the following (no variables, supports IE11):
+            <link href="css/halfmoon.min.css" rel="stylesheet" />
+          -->
+</head>
+<body>
+
+  <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
+  <div class="page-wrapper with-navbar ">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a class="btn btn-dark" href="/dashboard">
+          Back to dashboard
+        </a>
+      </div>
+      <div class="navbar-content ml-auto">
+
+        <!-- Github button container 1 start -->
+        <div class="pt-5 mr-5 d-none" id="gh-star-btn-container-1">
+          <div class="hidden-dm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+          <div class="hidden-lm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+        </div>
+        <!-- Github button container 1 end -->
+
+        
+      </div>
+    </nav>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+
+      <div class="card">
+      <div class="card-title text-center">STRESS GENERATOR</div>
+      <br>
+			<div class="form-group col-md-4">
+
+<form role="form" method="post" id="myform" name="myform">
+          
+            
+          <div class="form-group">
+          <label>Template</label>
+<select class="form-control" data-style="btn-light" id="template" name="template">
+<option selected>Pilih Template</option>
+<option value="tipe1">SIMP</option>
+<option value="tipe2">Jilat Kaki</option>
+<option value="tipe3">Wangi Wangi</option>
+<option value="tipe4">Watashi</option>
+<option value="tipe10">NELAN LUDAH</option>
+</select>
+
+            <label for="simpleinput"></label>
+            
+            <textarea placeholder="Sagiri" rows="10" cols="160" id="teks" name="teks" class="form-control" required></textarea>
+          </div>
+          <button type='button' class="btn btn-primary" id="button">Go</button>
+          <button class="btn btn-outline-primary copy" type="button" data-clipboard-target="#teks">Copy</button>
+          <button class="btn btn-primary float-right" type="button" onclick="javascript:eraseText();">Clear</button>
+        </form>
+
+
+    </div>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script>
+  function eraseText() {
+      $("textarea#teks").val('');
+    }
+
+    $(document).ready(function () {
+
+      let clipboard = new ClipboardJS('.copy');
+
+   
+      $("#button").click(function() {
+        
+        teks = $('textarea#teks').val();
+        const temp = $('#template').val();
+  let nama = $('#teks').val() 
+  let temp_text
+    if (temp == "tipe1") {
+                temp_text =
+                    `Buruan, panggil gue SIMP, ato BAPERAN. ini MURNI PERASAAN GUE. Gue pengen genjot bareng ${nama}. Ini seriusan, suaranya yang imut, mukanya yang cantik, apalagi badannya yang aduhai ningkatin gairah gue buat genjot ${nama}. Setiap lapisan kulitnya pengen gue jilat. ` +
+                    `Saat gue mau crot, gue bakal moncrot sepenuh hati, bisa di perut, muka, badan, teteknya, sampai lubang burit pun bakal gue crot sampai puncak klimaks. Gue bakal meluk dia abis gue moncrot, lalu nanya gimana kabarnya, ngrasain enggas bareng saat telanjang. ` +
+                    `Dia bakal bilang kalau genjotan gue mantep dan nyatain perasaannya ke gue, bilang kalo dia cinta ama gue. Gue bakal bilang balik seberapa gue cinta ama dia, dan dia bakal kecup gue di pipi. Terus kita ganti pakaian dan ngabisin waktu nonton film, sambil pelukan ama makan hidangan favorit. ` +
+                    `Gue mau ${nama} jadi pacar, pasangan, istri, dan idup gue. Gue cinta dia dan ingin dia jadi bagian tubuh gue. Lo kira ini copypasta? Kagak cok. Gue ngetik tiap kata nyatain prasaan gue. Setiap kali elo nanya dia siapa, denger ini baik-baik : DIA ISTRI GUE. Gue sayang ${nama}, dan INI MURNI PIKIRAN DAN PERASAAN GUE.`;
+            } else if (temp == "tipe2") {
+                nama = nama.toUpperCase();
+                temp_text =
+                    `GW BENAR-BENAR PENGEN JILATI KAKI ${nama}. GW PENGEN BANGET MENJILAT SETIAP BAGIAN KAKINYA SAMPAI AIR LIUR GW BERCUCURAN KAYAK AIR KERINGAT LALU NGENOD DENGANNYA SETIAP HARI SAMPAI TUBUH KITA MATI RASA YA TÜHAN. GW INGIN MEMBUAT ANAK-ANAK DENGAN ${nama} ` +
+                    `SEBANYAK SATU TÌM SEPAK BOLA DAN MEMBUAT SATU TIM SEPAK BOLA LAINNYA UNTUK MELAWAN ANAK-ANAK TIM SEPAK BOLA PERTAMA GW YANG GW BUAT SAMA ${nama}. GW PENGEN MASUK KE SETIAP LUBANG TUBUHNYA, MAU ITU LUBANG HIDUNG, LUBANG TELINGA, RONGGA MATA MAUPUN PUSAR, KECUALI PORI-PORI KULIT. ` +
+                    `KEMUDIAN GW AKAN MENJADIKANNYA MANUSIA YANG TIDAK BISA HIDUP KALO TIDAK GW KENTOG SETIAP HARI. DAN KALAU GUA DISEPONG GUA RELA KONTL GUA PUTUS.`;
+            } else if (temp == "tipe3") {
+                nama = nama.toUpperCase();
+                temp_text =
+                    `${nama} ${nama} ${nama}${nama.substr(nama.length - 1).repeat(4)} ❤️ ❤️ ❤️ WANGI WANGI WANGI WANGI HU HA HU HA HU HA, aaaah baunya rambut ${nama} wangi aku mau nyiumin aroma wanginya ${nama} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~~~ AAAAAH ${nama} ` +
+                    `keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH ${nama} AAAAA LUCCUUUUUUUUUUUUUUU............ ${nama} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? ${nama} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! ` +
+                    `GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ ${nama} gw ...${nama} di laptop ngeliatin gw, ${nama} .. kamu percaya sama aku ? aaaaaaaaaaah syukur ${nama} aku gak mau merelakan ${nama} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA ${nama} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH`;
+            } else if (temp == "tipe4") {
+                temp_text =
+                    `watashi mencintai ${nama} dengan tulus dan penuh kasih sayang, watashi tidak tahan dengan hinaan kalian yg kalian berikan terhadap ${nama}. ${nama} selalu menangis dikamarnya setiap malam karena hinaan kalian. "shine, shine, shine" hanya kata itulah yang ada dipikiran watashi tpi watashi hanya manusia lemah yang tak berdaya jika dikroyok banyak orang. ` +
+                    `Suatu saat kemudian ada orang biadab memfitnah ${nama} dengan membuat video skandal lalu menyebarkannya di website pornografi. Amarah dan aura merah menyelimuti watashi tanpa disadari darah menetes dari mata watashi secepat kilat watashi menengok cermin lalu watashi melihat rambut watashi belahan menjadi putih lalu ada kagune di punggung watashi lalu sosok kaneki muncul ` +
+                    `dari dalam cermin tanpa berkata apapun dia memberikan maskernya dan langsung pergi melompati jendela. Watashi langung mencuci masker itu karena bau tengik mulut kaneki membekas di masker itu. Perut Watashi tiba tiba merasa lapar, watashi mencoba indomie buatan ${nama} lalu watashi muntah muntah 😖, lalu terlintas dipikiran watashi jadi berita itu benar ! ` +
+                    `ghoul memang harus memakan manusia karena watashi masih mempunya jiwa manusia akhirnya watashi memakan tangan sendiri. Meskipun tidak menghilangkan rasa lapar setidaknya ini cukup untuk berdiri lalu memangsa siapapun yang menghina istri watashi. no mercy no cry u must die, watashi tak segan segan membunuh kalian jika kalian menghina ${nama}.`;
+            } else if (temp == "tipe10"){
+                nama = nama2.toUpperCase();
+                nama_fans = nama_fans.toUpperCase();
+                status = status.toUpperCase();
+                kekurangan = kekurangan.toUpperCase();
+                kelebihan = kelebihan.toUpperCase();
+
+                temp_text =
+                    `MAKSUD LO APA HINA2 ${nama} HAH!? GUE MESTI KASIH TAU YA ${nama} ITU ${status}! ${nama} ITU ${kelebihan}. ${kekurangan} LU GAADA APA2NYA DIBANDING SAMA ${nama}. ${nama_fans} BAKAL NGINCAR LO SAMPE ELO GABAKAL ADA DI BUMI INI! CAMKAN KATA KATA ${nama_fans}!!!! LU PIKIR LU BISA SEENAK NYA NGATAIN ${nama} BEGITU AJA? ` +
+                    `PIKIR ULANG NJING! PAS GUA NGETIK INI GUA UDAH HUBUNGIN DAN MEMANGGIL SELURUH ${nama_fans} DI SEKOJUR DUNIA DAN MUKA LU UDAH GW LACAK BUAT UU ITE! ${nama_fans} ADA DIMANA-MANA KAPAN AJA DAN BISA BULLY ELU DENGAN SEGALA CARA, COBA AJA LO GAK NGEHINA ${nama} ATAU LU BISA JAGA MULUT. LO NGGA BISA KAN? ${nama_fans} BAKAL HANCUR SAMA KAWAN2 LO YANG LAIN YANG HINA ${nama}, LU BAKAL MATI`;
+      } else {
+swal("Pilih salah satu template!!!");
+}
+      
+      
+        
+        $("textarea#teks").val(temp_text);
+
+      });
+    });
+  
+  </script>
+</div>
+<!-- Halfmoon JS -->
+
+<script src="js/halfmoon.min.js"></script>
+</body>
+</html>

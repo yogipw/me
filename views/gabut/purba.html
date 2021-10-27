@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <title>YogiPw</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+  <!--
+            Or,
+            Use the following (no variables, supports IE11):
+            <link href="css/halfmoon.min.css" rel="stylesheet" />
+          -->
+</head>
+<body>
+  <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
+  <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a class="btn btn-dark" href="/dashboard">
+          Back to dashboard
+        </a>
+      </div>
+      <div class="navbar-content ml-auto">
+
+        <!-- Github button container 1 start -->
+        <div class="pt-5 mr-5 d-none" id="gh-star-btn-container-1">
+          <div class="hidden-dm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+          <div class="hidden-lm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+        </div>
+        <!-- Github button container 1 end -->
+
+        <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+
+      <div class="card">
+        <div class="card-title text-center">
+          Bahasa purba v:
+        </div>
+        <br>
+        <form role="form" method="post" id="myform" name="myform">
+          <div class="form-row">
+            <div class="form-group switchery-demo col-md-3">
+              <label for="simpleinput">Translate?</label><br>
+              <div class="custom-switch">
+                <input type="checkbox" id="translate" value="">
+                <label for="translate" id="status">Normal text to purba</label>
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label for="simpleinput">Key</label>
+              <input type="text" id="abjad" name="abjad" class="form-control" autocomplete="off" maxlength="1" placeholder="v, g" onkeypress="return /[^aiueo]/.test(String.fromCharCode(((event||window.event).which||(event||window.event).which)));" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="simpleinput">Teks Normal</label>
+            <textarea placeholder="Enter your text here..." rows="10" cols="160" id="teks" name="teks" class="form-control" required></textarea>
+          </div>
+          <button type='button' class="btn btn-primary" id="button">Purbain</button>
+          <button class="btn btn-outline-primary copy" type="button" data-clipboard-target="#teks">Copy</button>
+          <button class="btn btn-primary float-right" type="button" onclick="javascript:eraseText();">Clear</button>
+        </form>
+      </div>
+
+    </div>
+    <!-- Navbar fixed bottom -->
+    <nav class="navbar navbar-fixed-bottom">
+
+    </nav>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script>
+    function eraseText() {
+      $("textarea#teks").val('');
+    }
+
+    $(document).ready(function () {
+
+      let clipboard = new ClipboardJS('.copy');
+
+      function pattern(text) {
+        return text.replace(/[^aiueo]/g, ``);
+      }
+
+      $('#translate').change(function () {
+        if (!this.checked) {
+          $('#status').text('Normal text to purba');
+          $("#button").text('Purbain');
+        } else {
+          $('#status').text('Translate purba to normal text');
+          $("#button").text('Normalkan');
+        }
+      });
+
+      function normalize(text, abjad) {
+        let ganti = new RegExp(`${abjad.toLowerCase()}(a|i|u|e|o)|${abjad.toUpperCase()}(A|I|U|E|O)`,
+          "g");
+        return text.replace(ganti,
+          '');
+      }
+
+      function purbain(text, abjad) {
+        let lower = text.replace(/(a|i|u|e|o)/g,
+          `$1${abjad.toLowerCase()}$1`);
+        let upper = lower.replace(/(A|I|U|E|O)/g,
+          `$1${abjad.toUpperCase()}$1`);
+        return upper;
+      }
+
+      $("#button").click(function() {
+        let abjad/* = $('#abjad').val()*/,
+        teks = $('textarea#teks').val();
+        //alert($('#translate').is(":checked"));
+        //abjad = $('#translate').is(":checked") && !$('#abjad').val() ? $('textarea#teks').val().match(/^(a|i|u|e|o|A|I|U|E|O)[^(.*)]/g).toString().replace(/(a|i|u|e|o|A|I|U|E|O)/g, '') : (!$('#translate').is(":checked") && $('#abjad').val() ? $('#abjad').val() : $('#abjad').val())/*alert("Key tidak ditemukan")*/;
+        if ($('#translate').is(":checked") && !$('#abjad').val()) {
+          //checked & abjad empty
+          //alert($('textarea#teks').val().match(/(a|i|u|e|o|A|I|U|E|O)[^(.*)]/).toString()[1])
+          abjad = $('textarea#teks').val().match(/(a|i|u|e|o|A|I|U|E|O)[^(.*)]/).toString()[1];
+        } else if (!$('#translate').is(":checked") && $('#abjad').val()) {
+          //not checked & ada abjad
+          abjad = $('#abjad').val();
+        } else if (!$('#translate').is(":checked") && !$('#abjad').val()) {
+          //not checked & abjad empty
+          alert("Isi key nya");
+          return
+        } else {
+          abjad = $('#abjad').val();
+        }
+        let aksi = $('#translate').is(":checked") ? normalize(teks, abjad): purbain(teks, abjad)
+        $("textarea#teks").val(aksi);
+
+      });
+    });
+  </script>
+</div>
+<!-- Halfmoon JS -->
+
+<script src="js/halfmoon.min.js"></script>
+</body>
+</html>

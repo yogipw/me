@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+  <title>YogiPw</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+  <!--
+            Or,
+            Use the following (no variables, supports IE11):
+            <link href="css/halfmoon.min.css" rel="stylesheet" />
+          -->
+</head>
+<body>
+  <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
+  <div class="page-wrapper with-navbar with-sidebar with-navbar-fixed-bottom">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <button id="toggle-sidebar-btn" class="btn btn-action" type="button" onclick="halfmoon.toggleSidebar()">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <p class="navbar-brand ml-10 ml-sm-15">
+        YogiPw
+      </p>
+
+
+
+      <div class="navbar-content ml-auto">
+
+        <!-- Github button container 1 start -->
+        <div class="pt-5 mr-5 d-none" id="gh-star-btn-container-1">
+          <div class="hidden-dm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+          <div class="hidden-lm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+        </div>
+        <!-- Github button container 1 end -->
+
+        <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+        </button>
+
+      </nav>
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="sidebar-menu">
+
+          <!-- Sidebar links (with icons) and titles -->
+          <h5 class="sidebar-title">Getting started</h5>
+          <div class="sidebar-divider"></div>
+          <a href="#" class="sidebar-link sidebar-link-with-icon active">
+            <span class="sidebar-icon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>
+            Profile
+          </a>
+          <a href="/dashboard" class="sidebar-link sidebar-link-with-icon ">
+            <span class="sidebar-icon">
+              <i class="fa fa-book" aria-hidden="true"></i>
+            </span>
+            Dashboard
+          </a>
+          <br />
+          <h5 class="sidebar-title">Gabut ?? coba cek dibawah ini</h5>
+          <div class="sidebar-divider"></div>
+          <a href="/tictactoe" class="sidebar-link sidebar-link-with-icon">
+            Tictactoe
+          </a>
+          <a href="/purba" class="sidebar-link sidebar-link-with-icon">
+            Bahasa purba
+          </a>
+          <a href="/ninjaname" class="sidebar-link sidebar-link-with-icon">
+            Ninja name
+          </a>
+          <a href="/stress" class="sidebar-link sidebar-link-with-icon">
+            Stress text
+          </a>
+          <br>
+          <h5 class="sidebar-title">Tools</h5>
+          <div class="sidebar-divider"></div>
+          <a href="/kalkulator" class="sidebar-link sidebar-link-with-icon">
+            Kalkulator
+          </a>
+          
+        </div>
+      </div>
+
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+        <div class="card shadow text-center">
+
+          <img src="https://z-m-scontent.fsub2-2.fna.fbcdn.net/v/t1.6435-9/cp0/e15/q65/p720x720/162232480_123691949764599_2566256700892293068_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=85a577&efg=eyJpIjoibyJ9&_nc_eui2=AeELh6lY-_dtoHCWdORpmjnyHcYpiuL35tkdximK4vfm2ZBnj6NLGS722lNnJBnx42NZSq57U2kj_XrFDfOv8-bJ&_nc_ohc=KBPU0y5cMaYAX_7sO-n&_nc_ad=z-m&_nc_cid=1101&_nc_eh=3a765718e0bed08b2ad67fbc11e4794f&_nc_rml=0&_nc_ht=z-m-scontent.fsub2-2.fna&oh=1206c93d97bda4c5f1efc58abff60ed0&oe=618673AB" alt="yogipw" width="200"
+          class="rounded-circle border">
+          <h4>YogiPw <span class="fa fa-check-circle" style="color: #238AE6"></h4>
+            <h6>1X th | Islam | <span class="fa fa-mars"></span></h7>
+            <br>
+            <h8> <span class="fa fa-map-marker"></span> Kalimantan timur, indonesia</h8>
+            <br>
+            <br>
+            <h6> Just For Fun</h8>
+
+          </div>
+
+        </div>
+        <!-- Navbar fixed bottom -->
+        <nav class="navbar navbar-fixed-bottom">
+
+        </nav>
+      </div>
+
+      <!-- Requires halfmoon.js for toggling sidebar -->
+
+      <!-- Halfmoon JS -->
+      <script src="js/halfmoon.min.js"></script>
+    </body>
+  </html>

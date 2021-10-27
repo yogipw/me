@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <title>YogiPw</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+  <!--
+            Or,
+            Use the following (no variables, supports IE11):
+            <link href="css/halfmoon.min.css" rel="stylesheet" />
+          -->
+</head>
+<body>
+  <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
+  <div class="page-wrapper with-navbar ">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a class="btn btn-dark" href="/dashboard">
+          Back to dashboard
+        </a>
+      </div>
+      <div class="navbar-content ml-auto">
+
+        <!-- Github button container 1 start -->
+        <div class="pt-5 mr-5 d-none" id="gh-star-btn-container-1">
+          <div class="hidden-dm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+          <div class="hidden-lm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+        </div>
+        <!-- Github button container 1 end -->
+
+        <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+
+      <div class="card">
+        <div class="card-title text-center">
+          Ninja name generator
+        </div>
+        <br>
+        <form role="form" method="post" id="myform" name="myform">
+          
+            
+          <div class="form-group">
+            <label for="simpleinput"></label>
+            <textarea placeholder="Enter your name here..." rows="10" cols="160" id="teks" name="teks" class="form-control" required></textarea>
+          </div>
+          <button type='button' class="btn btn-primary" id="button">Go</button>
+          <button class="btn btn-outline-primary copy" type="button" data-clipboard-target="#teks">Copy</button>
+          <button class="btn btn-primary float-right" type="button" onclick="javascript:eraseText();">Clear</button>
+        </form>
+      </div>
+
+    </div>
+    
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script>
+    function eraseText() {
+      $("textarea#teks").val('');
+    }
+function ninja(name, sep) {
+  const NINJA = {
+    a: 'ka',
+    b: 'zu',
+    c: 'mi',
+    d: 'te',
+    e: 'ku',
+    f: 'lu',
+    g: 'ji',
+    h: 'ri',
+    i: 'ki',
+    j: 'zu',
+    k: 'me',
+    l: 'ta',
+    m: 'rin',
+    n: 'to',
+    o: 'mo',
+    p: 'no',
+    q: 'ke',
+    r: 'shi',
+    s: 'ari',
+    t: 'ch',
+    u: 'do',
+    v: 'ru',
+    w: 'mei',
+    x: 'na',
+    y: 'fu',
+    z: 'zi',
+  };
+
+  sep = sep || '';
+  
+  const ninjaName = name.split('').map((l) => {
+    return NINJA[l.toLowerCase()] || l;
+  }).join(sep);
+  
+  return ninjaName;
+}
+    $(document).ready(function () {
+
+      let clipboard = new ClipboardJS('.copy');
+
+   
+      $("#button").click(function() {
+        
+        teks = $('textarea#teks').val();
+        
+        let aksi = ninja($('textarea#teks').val()) 
+        $("textarea#teks").val(aksi);
+
+      });
+    });
+  </script>
+</div>
+<!-- Halfmoon JS -->
+
+<script src="js/halfmoon.min.js"></script>
+</body>
+</html>
