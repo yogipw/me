@@ -18,6 +18,9 @@ router.get('/dashboard', (req, res) => {
 router.get('/tictactoe', (req, res) => {
     res.sendFile(__path + '/views/game/ttt.html')
 })
+router.get('/tebak-siapa', (req, res) => {
+    res.sendFile(__path + '/views/game/tebak-siapa.html')
+})
 router.get('/purba', (req, res) => {
     res.sendFile(__path + '/views/gabut/purba.html')
 })
@@ -32,10 +35,13 @@ router.get('/stress', (req, res) => {
 router.get('/kalkulator', (req, res) => {
     res.sendFile(__path + '/views/tools/calculator.html')
 })
+router.get('/formatter', (req, res) => {
+    res.sendFile(__path + '/views/tools/formatter.html')
+})
+router.get('/tes', (req, res) => {
+    res.sendFile(__path + '/views/tes.html')
+})
 
 
-router.use(function(req,res){
-    res.status(404).sendFile(__path + '/views/404.html')
-});
 
 module.exports = router
