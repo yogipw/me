@@ -2,9 +2,9 @@
   "name": "yogipw",
   "version": "1.1.0",
   "description": "shit",
-  "main": "node index.js",
+  "main": "nodemon index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "private": true,
   "author": "YogiPw",
