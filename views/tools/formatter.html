@@ -108,13 +108,13 @@
           })
          
         if (temp == "tipe1") {
-          $.getJSON(`http://me.yogipw.cf/api/indo-formatter/toTerbilang?angka=${teks}`,
+          $.getJSON(`https://me.yogipw.cf/api/indo-formatter/toTerbilang?angka=${teks}`,
             function (data) {
               $("#result").show()
               $("#teks").html(data.result);
             })
         } else if (temp == "tipe2") {
-          $.getJSON(`http://me.yogipw.cf/api/indo-formatter/toRupiah?angka=${teks}`,
+          $.getJSON(`https://me.yogipw.cf/api/indo-formatter/toRupiah?angka=${teks}`,
             function (data) {
               $("#result").show()
               $("#teks").html(data.result);
