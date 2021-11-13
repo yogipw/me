@@ -38,7 +38,7 @@ router.get('/kalkulator', (req, res) => {
 router.get('/formatter', (req, res) => {
     res.sendFile(__path + '/views/tools/formatter.html')
 })
-router.get('/imagemanipulation', (req, res) => {
+router.get('/canvas', (req, res) => {
     res.sendFile(__path + '/views/tools/imagemanipulation.html')
 })
 router.get('/tes', (req, res) => {
