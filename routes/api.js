@@ -24,7 +24,6 @@ const fs = require('fs');
 const TikTokScraper = require('tiktok-scraper');
 const { EmojiAPI } = require("emoji-api");
 const emoji = new EmojiAPI();
-const ytdl = require('ytdl-core');
 const rumus = require('rumus-bdr') 
 const {toTerbilang, toUcFirst, toRupiah, toTanggal} = require('indo-formatter');
  
