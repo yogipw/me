@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- Favicon and title -->
+  <link rel="icon" href="path/to/fav.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxbeier.github.io/text-spinners/spinners.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>YogiPw</title>
+
+  <!-- Halfmoon CSS -->
+  <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
+  <div class="page-wrapper with-navbar ">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-content">
+        <a class="btn btn-dark" href="/dashboard">
+          Back to dashboard
+        </a>
+      </div>
+      <div class="navbar-content ml-auto">
+
+        <!-- Github button container 1 start -->
+        <div class="pt-5 mr-5 d-none" id="gh-star-btn-container-1">
+          <div class="hidden-dm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+          <div class="hidden-lm">
+            <a class="github-button" href="https://github.com/halfmoonui/halfmoon" data-color-scheme="no-preference: dark; light: dark; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star halfmoonui/halfmoon on GitHub">Star</a>
+          </div>
+        </div>
+        <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
+          <i class="fa fa-moon-o" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+    <style>
+      #loading,  #cardresult, #buttonL {
+        display: none;
+      }
+    </style>
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+      <div id="cardresult" class="card">
+        <div class="card-title text-center">
+          RESULT
+        </div>
+        <img id="result" src="..." class="img-fluid rounded" alt="rounded image">
+        <a id="link" class="btn btn-primary text-center" href="" download type="button">Download</a>
+      </div>
+      <div class="card">
+        <div class="card-title text-center">
+          IMAGE MANIPULATION GENERATOR
+        </div>
+        <br>
+        <div class="form-group col-md-4">
+          <form role="form" method="post" id="myform" name="myform">
+            <div class="form-group">
+              <label>Template</label>
+              <select class="form-control" data-style="btn-light" id="template" name="template">
+                <option selected>Pilih efek</option>
+                <option value="burik">Burikin</option>
+                <option value="wanted">Wanted</option>
+                <option value="wasted">Wasted</option>
+                <option value="trigger">Triggered</option>
+                <option value="delete">Delete</option>
+                <option value="confusedstonk">Confused Stonk</option>
+                <option value="discordblue">Discord</option>
+                <option value="hitler">Hitler</option>
+                <option value="jail">Jail</option>
+                <option value="trash">Trash</option>
+                <option value="gay">Gay</option>
+                <option value="communism">Communism</option>
+                <option value="captcha">Captcha</option>
+                <option value="continued">Continued</option>
+                <option value="petimati">RIP</option>
+                <option value="putin">Putin</option>
+                <option value="notstonk">Not stonk</option>
+              </select>
+              <br />
+              <div class="custom-file">
+                <input type="file" id="file-input-2" accept="image/*">
+                <label for="file-input-2">Choose a image</label><button id="button" class="btn btn-primary" type="button">Go</button>
+                <button id="buttonL" class="btn btn-primary disabled" type="button">Loading <span class="loading"></span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+        <script>
+          function _arrayBufferToBase64(buffer) {
+            var binary = '';
+            var bytes = new Uint8Array(buffer);
+            var len = bytes.byteLength;
+            for (var i = 0; i < len; i++) {
+              binary += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(binary);
+          }
+          async function upload(img) {
+
+            const formdata = new FormData()
+            formdata.append("image", img)
+            await axios("https://api.imgbb.com/1/upload?key=ea273c476b08fe47d0365355b4d38a03", {
+              method: "POST",
+              data: formdata
+            }).then(data => {
+              if (data.status == 200) return
+              link = data.data.data.url
+              console.log(link)
+              return link
+            })
+          }
+          function mulai() {
+            const formdata = new FormData()
+            formdata.append("image",
+              $('#file-input-2').get(0).files[0])
+            axios("https://api.imgbb.com/1/upload?key=ea273c476b08fe47d0365355b4d38a03",
+              {
+                method: "POST",
+                data: formdata
+              }).then(async({
+                  data
+                }) => {
+                console.log(data)
+                link = data.data.url
+                tipe = $("#template").val()
+                $('#buttonL').hide();
+                $('#button').show();
+                if (tipe == 'Pilih efek') return swal(" Pilih salah satu efek! ")
+                let hasil = manipulation(tipe, link)
+                $('#result').attr("src", hasil);
+                $('#link').attr("href", hasil);
+                $('#cardresult').show();
+              })
+          }
+          function manipulation(tipe, link) {
+            return "https://cukapi.yogipw.repl.co/api/" + tipe + "?url=" + link
+          }
+          $(document).ready(function () {
+
+            $("#button").click(async function() {
+              if ($('#file-input-2').get(0).files[0] == undefined) return swal("Masukkan file gambar!! ")
+              $('#button').hide();
+              $('#buttonL').show();
+
+              mulai();
+            });
+
+          });
+
+        </script>
+      </div>
+      <!-- Halfmoon JS -->
+
+      <script src="js/halfmoon.min.js"></script>
+    </body>
+
+  </html>
