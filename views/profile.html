@@ -9,21 +9,22 @@
 
   <!-- Favicon and title -->
   <link rel="icon" href="path/to/fav.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 
   <title>YogiPw</title>
 
   <!-- Halfmoon CSS -->
   <link href="css/halfmoon-variables.min.css" rel="stylesheet" />
   <!--
-            Or,
-            Use the following (no variables, supports IE11):
-            <link href="css/halfmoon.min.css" rel="stylesheet" />
-          -->
+              Or,
+              Use the following (no variables, supports IE11):
+              <link href="css/halfmoon.min.css" rel="stylesheet" />
+            -->
 </head>
 <body>
   <!-- Page wrapper with navbar, sidebar, and navbar fixed bottom -->
-  <div class="page-wrapper with-navbar with-sidebar with-navbar-fixed-bottom">
+  <div class="page-wrapper with-navbar with-sidebar ">
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-content">
@@ -31,13 +32,9 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </button>
       </div>
-
       <p class="navbar-brand ml-10 ml-sm-15">
         YogiPw
       </p>
-
-
-
       <div class="navbar-content ml-auto">
 
         <!-- Github button container 1 start -->
@@ -52,7 +49,7 @@
         <!-- Github button container 1 end -->
 
         <button class="btn btn-action mr-5" type="button" onclick="halfmoon.toggleDarkMode()" aria-label="Toggle dark mode">
-          <i class="fa fa-moon-o" aria-hidden="true"></i>
+          <i class="fas fa-moon"></i>
         </button>
 
       </nav>
@@ -104,7 +101,7 @@
             Indo formatter
           </a>
           <a href="/canvas" class="sidebar-link sidebar-link-with-icon">
-            Image manipulation(Canvas) 
+            Image manipulation(Canvas)
           </a>
         </div>
       </div>
@@ -114,28 +111,76 @@
       <div class="content-wrapper">
         <div class="card shadow text-center">
 
-          <img src="https://z-m-scontent.fsub2-2.fna.fbcdn.net/v/t1.6435-9/cp0/e15/q65/p720x720/162232480_123691949764599_2566256700892293068_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=85a577&efg=eyJpIjoibyJ9&_nc_eui2=AeELh6lY-_dtoHCWdORpmjnyHcYpiuL35tkdximK4vfm2ZBnj6NLGS722lNnJBnx42NZSq57U2kj_XrFDfOv8-bJ&_nc_ohc=KBPU0y5cMaYAX_7sO-n&_nc_ad=z-m&_nc_cid=1101&_nc_eh=3a765718e0bed08b2ad67fbc11e4794f&_nc_rml=0&_nc_ht=z-m-scontent.fsub2-2.fna&oh=1206c93d97bda4c5f1efc58abff60ed0&oe=618673AB" alt="yogipw" width="200"
+          <img src="https://i.imgflip.com/4m9grc.jpg" alt="yogipw" width="200"
           class="rounded-circle border">
           <h4>YogiPw <span class="fa fa-check-circle" style="color: #238AE6"></h4>
-            <h6>1X th | Islam | <span class="fa fa-mars"></span></h7>
-            <br>
-            <h8> <span class="fa fa-map-marker"></span> Kalimantan timur, indonesia</h8>
-            <br>
-            <br>
-            <h6> Just For Fun</h8>
-
           </div>
+          <div class="card shadow-lg">
+            <ul>
+              <li><i class="fas fa-map-marker-alt"></i> Kalimantan timur, Indonesia</li>
+              <li><i class="fab fa-github"></i> <a href="https://github.com/yogipw">YogiPw</a></li>
+              <li><i class="fas fa-globe"></i> <a href="https://me.yogipw.cf">me.yogipw.cf</a></li>
+              <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6283152753417">+62 831-5275-3417</a></li>
+              <li><i class="fas fa-envelope"></i> yogipw@gmail.com</li>
+            </ul>
+          </div>
+          <div class="card shadow-lg">
+            <div class="card-title">Tech stack</div>
+            <span class="badge badge-pill">javascript</span>
+            <span class="badge badge-pill">html</span>
+            <span class="badge badge-pill">css</span>
+            <span class="badge badge-pill">phyton</span>
+          </div>
+          <div class="card shadow-lg">
+            <h4 class="text-center font-weight-bold">My project</h4>
+            <div class="text-right">
+              <!-- text-right = text-align: right -->
+              <a href="https://github.com/yogipw" class="btn">See all</a>
+            </div>
+          </div>
+          <div id="repo-list" class="container">
+            
 
+            </div>
+          </div>
         </div>
-        <!-- Navbar fixed bottom -->
-        <nav class="navbar navbar-fixed-bottom">
-
-        </nav>
+        
       </div>
 
       <!-- Requires halfmoon.js for toggling sidebar -->
+      <script>
+        $.ajax({
+          url: 'https://api.github.com/users/yogipw/repos',
+          type: 'get',
+          dataType: 'json',
+          success: function (result) {
 
+            $.each(result, function (i, data) {
+              $('#repo-list').append(`
+                <div class="card shadow-lg">
+              <i class="fas fa-folder"></i><a href="${data.svn_url}"class="card-title text-dark"> ${data.name}</a>
+              <p class="text-muted">
+                ${(data.description == null) ? "Tidak ada deskripsi": data.description}
+              </p>
+              <div class="d-flex">
+                <p class="flex-row">
+                  <i class="fas fa-code-branch"></i> ${data.forks_count}
+                </p>
+                  
+                <p>
+                </p>
+                <p class="flex-row">
+                  <i class="far fa-star"></i> ${data.stargazers_count}
+                </p>
+              </div>
+                `);
+            });
+
+          }
+        });
+      </script>
       <!-- Halfmoon JS -->
+
       <script src="js/halfmoon.min.js"></script>
     </body>
   </html>
